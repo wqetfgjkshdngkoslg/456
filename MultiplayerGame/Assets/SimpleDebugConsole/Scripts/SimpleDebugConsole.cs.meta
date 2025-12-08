@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: f0bae879e35d24967af7bb1edf8bb5ad
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 228001
+  packageName: Simple Debug Console
+  packageVersion: 1.0.1
+  assetPath: Assets/SimpleDebugConsole/Scripts/SimpleDebugConsole.cs
+  uploadId: 526831
