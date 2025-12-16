@@ -97,6 +97,11 @@ public class DFSPathFinder : MonoBehaviour
 
         if (current == end)  // 도착 지점에 도달했다면
         {
+            if (DFS_SearchCount_Text != null)
+            {
+                DFS_SearchCount_Text.text = "DFS : " + nDFSSearchCount.ToString();
+            }
+
             return new List<Vector2Int> { current };
         }
 
@@ -140,11 +145,7 @@ public class DFSPathFinder : MonoBehaviour
             {
                 path.Insert(0, current);
 
-                if (DFS_SearchCount_Text != null)
-                {
-                    DFS_SearchCount_Text.text = "DFS : " + nDFSSearchCount.ToString();
-                }
-
+               
                 return path;
             }
         }
