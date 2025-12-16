@@ -93,7 +93,8 @@ public class DFSPathFinder : MonoBehaviour
 
         visited.Add(current);   // 현재 좌표를 방문 목록에 등록해 중복 방문을 방지 
 
-        nDFSSearchCount++;
+        
+
 
         if (current == end)  // 도착 지점에 도달했다면
         {
@@ -101,6 +102,7 @@ public class DFSPathFinder : MonoBehaviour
             {
                 DFS_SearchCount_Text.text = "DFS : " + nDFSSearchCount.ToString();
             }
+
 
             return new List<Vector2Int> { current };
         }
@@ -111,9 +113,9 @@ public class DFSPathFinder : MonoBehaviour
          */
         Vector2Int[] vDirections = new Vector2Int[]
         {
-            Vector2Int.up,
-            Vector2Int.down,
             Vector2Int.left,
+            Vector2Int.down,
+            Vector2Int.up,
             Vector2Int.right
         };
 
@@ -125,6 +127,8 @@ public class DFSPathFinder : MonoBehaviour
         그 좌표를 시작점으로 재귀적으로 f_DFS 호출*/
         foreach (Vector2Int dir in vDirections)
         {
+
+            
             //현재 위치에서 dir 방향으로 한 칸 이동한 이웃 좌표
             Vector2Int vNeighbor = current + dir;
 
@@ -134,6 +138,8 @@ public class DFSPathFinder : MonoBehaviour
              - path에는 vNeighbor → ... → end 순서로 좌표가 들어있다
              경로가 없으면 null이 반환되고, 다음 방향을 탐색한다
             */
+            nDFSSearchCount++;
+
             List<Vector2Int> path = f_DFS(vNeighbor, end, visited);
 
             /*
@@ -145,11 +151,13 @@ public class DFSPathFinder : MonoBehaviour
             {
                 path.Insert(0, current);
 
-               
+                
+
                 return path;
             }
-        }
+            
 
+        }
         
 
         return null;
