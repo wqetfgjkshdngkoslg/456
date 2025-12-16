@@ -106,7 +106,12 @@ public class BFSPathFinder : MonoBehaviour
             // 탐색 카운트 누적 
             nBFSSearchCount++;
 
-            // 도착 지점에 도달한 경우 경로 복원후 반환
+            
+
+            // 도착 지점에 도달했는지 확인
+            // 종료 조건 도착 지점에 도달하면 경로 복원
+            // 현재 칸이 우리가 찾고 있던 도착 좌표라면 더 이상 탐색할 필요 없이 바로 경로 복원 단계로 넘어간다 
+            // f_ReconstructPath 는 출구에 도착했으니까 이제 지나온 길을 역으로 따라가서 경로 리스트를 만들어줘 라는 의미 
             if (current == vEndLocation)
             {
                 // 탐색한 노드 수를 UI에 표시 
@@ -115,15 +120,6 @@ public class BFSPathFinder : MonoBehaviour
                     BFS_SearchCount_Text.text = "BFS : " + nBFSSearchCount.ToString();
                 }
 
-                return f_ReconstructPath(cameFrom, current);
-            }
-
-            // 도착 지점에 도달했는지 확인
-            // 종료 조건 도착 지점에 도달하면 경로 복원
-            // 현재 칸이 우리가 찾고 있던 도착 좌표라면 더 이상 탐색할 필요 없이 바로 경로 복원 단계로 넘어간다 
-            // f_ReconstructPath 는 출구에 도착했으니까 이제 지나온 길을 역으로 따라가서 경로 리스트를 만들어줘 라는 의미 
-            if (current == vEndLocation)
-            {
                 return f_ReconstructPath(cameFrom, vEndLocation);
             }
 
